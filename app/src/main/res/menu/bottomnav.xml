@@ -2,11 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_running_id"
+        android:icon="@drawable/ic_runningtask"
         android:title="Running" />
     <item
         android:id="@+id/menu_allTask_id"
+        android:icon="@drawable/ic_alltask"
         android:title="All Task" />
     <item
         android:id="@+id/menu_upcomingTask_id"
+        android:icon="@drawable/ic_taskcomplete"
         android:title="Upcoming" />
 </menu>
