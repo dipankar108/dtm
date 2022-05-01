@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="appBackGround">#C7F3F9</color>
     <color name="bottomnavcolor">#17EBDE</color>
+    <color name="alltaskbackgroundcolor">#7A77E4</color>
 </resources>
