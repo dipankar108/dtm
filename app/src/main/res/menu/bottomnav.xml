@@ -10,6 +10,6 @@
         android:title="All Task" />
     <item
         android:id="@+id/menu_upcomingTask_id"
-        android:icon="@drawable/ic_taskcomplete"
+        android:icon="@drawable/ic_upcoming"
         android:title="Upcoming" />
 </menu>

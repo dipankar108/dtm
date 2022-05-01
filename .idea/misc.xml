@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/alltsskbackground.xml" value="0.192" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/alltsskbackgroung.xml" value="0.351" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/bottomnavstyle.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/color_bottomnav.xml" value="0.351" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_add.xml" value="0.192" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_alltask.xml" value="0.351" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_dots.xml" value="0.351" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_runningtask.xml" value="0.351" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_taskcomplete.xml" value="0.192" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/alltask.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/fragment_all_task.xml" value="0.30312099187687047" />
