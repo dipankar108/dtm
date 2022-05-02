@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@drawable/alltsskbackground">
+    android:background="@color/runningteTask">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -65,14 +65,29 @@ some design for my application and upload it on github.after updating on github 
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="5dp" />
 
+    <ProgressBar
+        android:id="@+id/pb_timeprogress_id"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:progress="30"
+        android:progressDrawable="@drawable/custom_progressbar_hor"
+        app:layout_constraintBottom_toBottomOf="@+id/view1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2" />
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view1">
+        app:layout_constraintTop_toBottomOf="@+id/pb_timeprogress_id">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -82,7 +97,7 @@ some design for my application and upload it on github.after updating on github 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Task start at : "
+                android:text="Task finished in : "
                 android:textColor="@color/white"
                 android:textSize="18dp" />
 
@@ -97,9 +112,8 @@ some design for my application and upload it on github.after updating on github 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:text="12/12/12"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="20dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

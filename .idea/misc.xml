@@ -7,6 +7,7 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/alltsskbackgroung.xml" value="0.351" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/bottomnavstyle.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/color_bottomnav.xml" value="0.351" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/custom_progressbar_hor.xml" value="0.192" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_add.xml" value="0.192" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_alltask.xml" value="0.351" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_dots.xml" value="0.351" />
@@ -14,10 +15,13 @@
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/drawable/ic_taskcomplete.xml" value="0.192" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/alltask.xml" value="0.33" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/finiahedtask.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/fragment_all_task.xml" value="0.30312099187687047" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/fragment_running_task.xml" value="0.30312099187687047" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/fragment_upcoming_task.xml" value="0.30312099187687047" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/incompletetask.xml" value="0.67" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/itemtask.xml" value="0.30312099187687047" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/runningtask.xml" value="0.33" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/layout/upcomingtask.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DTM/app/src/main/res/menu/bottomnav.xml" value="0.30312099187687047" />
       </map>
