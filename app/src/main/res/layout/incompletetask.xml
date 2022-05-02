@@ -34,7 +34,6 @@
 
     <View
         android:id="@+id/view"
-        tools:layout_editor_absoluteX="5dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="5dp"
@@ -56,7 +55,6 @@ some design for my application and upload it on github.after updating on github 
 
     <View
         android:id="@+id/view1"
-        tools:layout_editor_absoluteX="5dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="5dp"

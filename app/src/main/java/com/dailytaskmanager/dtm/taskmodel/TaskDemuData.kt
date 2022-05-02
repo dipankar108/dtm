@@ -1,7 +1,7 @@
 package com.dailytaskmanager.dtm.taskmodel
 
 object TaskDemuData {
-    val taskList = arrayListOf<TaskModel>()
+   private val taskList = arrayListOf<TaskModel>()
 
     init {
         if (taskList.isEmpty()) {

@@ -5,12 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".taskfragment.AllTaskFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_allTaskView_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="All Task"
-        android:textColor="@color/white"
-        />
+        tools:listitem="@layout/runningtask" />
 
 </FrameLayout>
