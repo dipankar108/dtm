@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DTM">
         <activity
+            android:name=".CreateTaskActivity"
+            android:exported="false" />
+        <activity
             android:name=".SpalshActivity"
             android:exported="false" />
         <activity
