@@ -6,14 +6,18 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.dailytaskmanager.dtm.databinding.ActivityMainBinding
+import com.dailytaskmanager.dtm.db.TaskManagerViewModel
+import com.dailytaskmanager.dtm.db.TaskModel
 import com.dailytaskmanager.dtm.taskfragment.AllTaskFragment
 import com.dailytaskmanager.dtm.taskfragment.RunningTaskFragment
 import com.dailytaskmanager.dtm.taskfragment.UpcomingTaskFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var taskLiveData: TaskManagerViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -22,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         actionbar?.setBackgroundDrawable(colorDrawable)
         setContentView(binding.root)
         changeFragment(RunningTaskFragment())
+        val viewModelFactory = TaskManagerViewModel(application)
+        taskLiveData = ViewModelProvider(this, object :
+            ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return viewModelFactory as T
+            }
+        })[TaskManagerViewModel::class.java]
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
 
             when (menuItem.itemId) {
@@ -36,6 +47,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             return@setOnItemSelectedListener true
+        }
+        binding.fabAddTaskId.setOnClickListener {
+            taskLiveData.insertTask(
+                TaskModel(
+                    0,
+                    "Do android ",
+                    "This task is incomplete",
+                    0,
+                    0,
+                    false,
+                    false,
+                    "No",
+                    "No",
+                    "12/12/12",
+                    "12/12/12/",
+                    false
+                )
+            )
         }
     }
 

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dailytaskmanager.dtm.taskmodel.TaskModel
+import com.dailytaskmanager.dtm.db.TaskModel
 
 /** Task Indicator
  * 0 Means Task Finished
