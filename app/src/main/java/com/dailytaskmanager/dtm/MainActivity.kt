@@ -1,16 +1,15 @@
 package com.dailytaskmanager.dtm
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dailytaskmanager.dtm.databinding.ActivityMainBinding
 import com.dailytaskmanager.dtm.db.TaskManagerViewModel
-import com.dailytaskmanager.dtm.db.TaskModel
 import com.dailytaskmanager.dtm.taskfragment.AllTaskFragment
 import com.dailytaskmanager.dtm.taskfragment.RunningTaskFragment
 import com.dailytaskmanager.dtm.taskfragment.UpcomingTaskFragment
@@ -49,22 +48,9 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.fabAddTaskId.setOnClickListener {
-            taskLiveData.insertTask(
-                TaskModel(
-                    0,
-                    "Do android ",
-                    "This task is incomplete",
-                    0,
-                    0,
-                    false,
-                    false,
-                    "No",
-                    "No",
-                    "12/12/12",
-                    "12/12/12/",
-                    false
-                )
-            )
+            startActivity(Intent(this, CreateTaskActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            })
         }
     }
 
