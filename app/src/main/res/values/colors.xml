@@ -15,4 +15,5 @@
     <color name="runningTask">#FF8C00</color>
     <color name="progressbarBackground">#BCCBA9</color>
     <color name="progressbarForeground">#570C0C</color>
+    <color name="dimGray">#696969</color>
 </resources>

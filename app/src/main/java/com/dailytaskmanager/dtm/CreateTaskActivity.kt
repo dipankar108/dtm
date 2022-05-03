@@ -1,21 +1,39 @@
 package com.dailytaskmanager.dtm
 
+import android.app.DatePickerDialog
 import android.app.Dialog
+import android.app.TimePickerDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.DatePicker
+import android.widget.TimePicker
 import androidx.appcompat.app.AppCompatActivity
 import com.dailytaskmanager.dtm.databinding.ActivityCreateTaskBinding
+import java.util.*
 
-class CreateTaskActivity : AppCompatActivity() {
+class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener,
+    TimePickerDialog.OnTimeSetListener {
     private lateinit var binding: ActivityCreateTaskBinding
     private lateinit var reminderDialog: Dialog
     private var reminder_before_10 = false
     private var reminder_finished_10 = false
     private var alarm_start = false
     private var alarm_finished = false
+    var day = 0
+    var month: Int = 0
+    var year: Int = 0
+    var hour: Int = 0
+    var minute: Int = 0
+    var myDay = 0
+    var myMonth: Int = 0
+    var myYear: Int = 0
+    var myHour: Int = 0
+    var myMinute: Int = 0
+    private lateinit var datePickerDialog: DatePickerDialog
+    private lateinit var timePickerDialog: TimePickerDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateTaskBinding.inflate(layoutInflater)
@@ -40,6 +58,7 @@ class CreateTaskActivity : AppCompatActivity() {
             val checkBox4: CheckBox = view.findViewById(R.id.cbx_alarm4_dial_id)
             if (reminder_before_10) {
                 checkBox1.isChecked = true
+
             }
             if (alarm_start) {
                 checkBox2.isChecked = true
@@ -50,9 +69,10 @@ class CreateTaskActivity : AppCompatActivity() {
             if (alarm_finished) {
                 checkBox4.isChecked = true
             }
+
             checkBox1.setOnCheckedChangeListener { _, _ ->
                 reminder_before_10 = !reminder_before_10
-            }
+               }
             checkBox2.setOnCheckedChangeListener { compoundButton, b ->
                 alarm_start = !alarm_start
             }
@@ -63,7 +83,50 @@ class CreateTaskActivity : AppCompatActivity() {
             checkBox4.setOnCheckedChangeListener { compoundButton, b ->
                 alarm_finished = !alarm_finished
             }
-
+            done.setOnClickListener {
+                if (reminder_finished_10 || reminder_before_10 || alarm_finished || alarm_start) {
+                    binding.btnAlramandreminderId.setBackgroundColor(resources.getColor(R.color.bottomnavcolor))
+                } else {
+                    binding.btnAlramandreminderId.setBackgroundColor(resources.getColor(R.color.dimGray))
+                }
+                reminderDialog.dismiss()
+            }
         }
+        binding.btnCreateTaskStartDateId.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            year = calendar.get(Calendar.YEAR)
+            month = calendar.get(Calendar.MONTH)
+            day = calendar.get(Calendar.DAY_OF_MONTH)
+            hour = calendar.get(Calendar.HOUR)
+            minute = calendar.get(Calendar.MINUTE)
+            timePickerDialog =
+                TimePickerDialog(
+                    this@CreateTaskActivity, this@CreateTaskActivity, hour, minute,
+                    false
+                )
+            datePickerDialog = DatePickerDialog(this, this@CreateTaskActivity, year, month, day)
+            datePickerDialog.show()
+        }
+
+    }
+
+    private fun changeButtonColor(binding: ActivityCreateTaskBinding) {
+        if (reminder_finished_10 || reminder_before_10 || alarm_finished || alarm_start) {
+            binding.btnAlramandreminderId.setBackgroundColor(resources.getColor(R.color.bottomnavcolor))
+        } else {
+            binding.btnAlramandreminderId.setBackgroundColor(resources.getColor(R.color.dimGray))
+        }
+    }
+
+    override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        myDay = dayOfMonth
+        myYear = year
+        myMonth = month
+        binding.tvCreateDateStartViewId.text = "$myDay/$myMonth/$myYear"
+        timePickerDialog.show()
+    }
+
+    override fun onTimeSet(p0: TimePicker?, hour: Int, min: Int) {
+        binding.tvCreateTimeStartViewId.text = "$hour:$min"
     }
 }

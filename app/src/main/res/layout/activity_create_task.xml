@@ -40,7 +40,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:backgroundTint="@color/dimGray"
         android:text="Start Time"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_create_taskDesc_id" />
 
@@ -53,7 +55,18 @@
         android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_createTaskStartDate_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toEndOf="@+id/tv_create_timeStartView_id"
+        app:layout_constraintTop_toBottomOf="@+id/et_create_taskDesc_id" />
+
+    <TextView
+        android:id="@+id/tv_create_timeStartView_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Not Set"
+        android:textColor="@color/finishedTask"
+        android:textSize="19dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_createTaskStartDate_id"
         app:layout_constraintStart_toEndOf="@+id/btn_createTaskStartDate_id"
         app:layout_constraintTop_toBottomOf="@+id/et_create_taskDesc_id" />
 
@@ -62,9 +75,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:backgroundTint="@color/dimGray"
         android:text="End Time"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_createTaskStartDate_id" />
+
+    <TextView
+        android:id="@+id/tv_create_timeEntdiew_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Not Set"
+        android:textColor="@color/finishedTask"
+        android:textSize="19dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_createTaskEndDate_id"
+        app:layout_constraintStart_toEndOf="@+id/btn_createTaskEndDate_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_create_dateStartView_id" />
 
     <TextView
         android:id="@+id/tv_create_dateEntdiew_id"
@@ -75,14 +102,17 @@
         android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_createTaskEndDate_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_createTaskEndDate_id"
+        app:layout_constraintStart_toEndOf="@+id/tv_create_timeEntdiew_id"
         app:layout_constraintTop_toBottomOf="@+id/tv_create_dateStartView_id" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_alramandreminder_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+        android:background="@color/dimGray"
         android:text="Alarm and reminder"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_createTaskEndDate_id" />
