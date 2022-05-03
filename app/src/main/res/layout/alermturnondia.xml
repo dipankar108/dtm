@@ -4,12 +4,14 @@
     android:layout_height="wrap_content"
     android:background="@color/appBackGround"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Turn on Reminder &amp; Alarm"
+        android:textColor="@color/runningTask"
         android:textSize="18dp" />
 
     <LinearLayout
@@ -18,32 +20,56 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reminder before 10 Minutes of task Start" />
 
         <CheckBox
+            android:id="@+id/cbx_alarm1_dial_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alarm after task Start" />
+            android:text="Reminder before 10 Minutes of task Start"
+            android:textColor="@color/runningTask" />
+
+        <CheckBox
+            android:id="@+id/cbx_alarm2_dial_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alarm when task Start"
+            android:textColor="@color/runningTask" />
+
+        <CheckBox
+            android:id="@+id/cbx_alarm3_dial_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reminder before 10 Minutes of Finished Task"
+            android:textColor="@color/alltaskbackgroundcolor" />
+
+        <CheckBox
+            android:id="@+id/cbx_alarm4_dial_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alarm when task finished"
+            android:textColor="@color/alltaskbackgroundcolor" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_alarm_Submit_Dial_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reminder before 10 Minutes of Finished Task" />
+            android:text="Done"
+            android:textColor="@color/finishedTask" />
 
-        <CheckBox
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_alarm_Cancel_Dial_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alarm when task finished" />
+            android:text="Cancel"
+            android:textColor="@color/incompleteTask" />
     </LinearLayout>
+
+
 </LinearLayout>

@@ -12,7 +12,7 @@
     <color name="alltaskbackgroundcolor">#7A77E4</color>
     <color name="finishedTask">#2E8B57</color>
     <color name="incompleteTask">#FF4500</color>
-    <color name="runningteTask">#FF8C00</color>
+    <color name="runningTask">#FF8C00</color>
     <color name="progressbarBackground">#BCCBA9</color>
     <color name="progressbarForeground">#570C0C</color>
 </resources>
