@@ -3,13 +3,11 @@ package com.dailytaskmanager.dtm
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.DatePicker
-import android.widget.TimePicker
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.dailytaskmanager.dtm.databinding.ActivityCreateTaskBinding
 import java.util.*
@@ -36,6 +34,7 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
     var myMinute: Int = 0
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var timePickerDialog: TimePickerDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateTaskBinding.inflate(layoutInflater)
@@ -102,7 +101,27 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
             pickDateAndTime()
             startTime = false
         }
+        val hourAdapter = ArrayAdapter.createFromResource(
+            this, R.array.hour, R.layout.spinneritem
+        )
+        val minuteAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.minute,
+            R.layout.spinneritem
+        )
+        binding.spinnerHourId.adapter = hourAdapter
+        binding.spinnerMinuteId.adapter = minuteAdapter
+        binding.btnAlramanSaveId.setOnClickListener {
 
+            val title = binding.etCreateTaskTitleId.text.toString()
+            val desc = binding.etCreateTaskDescId.text.toString()
+            val startTime = binding.tvCreateTimeStartViewId.text.toString()
+            val startDate = binding.tvCreateDateStartViewId.text.toString()
+            val totalTime = binding.tvCreateTimeEntdiewId.text.toString()
+            startActivity(Intent(this, MainActivity::class.java).apply {
+                finish()
+            })
+        }
     }
 
     private fun pickDateAndTime() {
