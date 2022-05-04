@@ -22,6 +22,8 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
     private var reminder_finished_10 = false
     private var alarm_start = false
     private var alarm_finished = false
+    private var startTime = true
+
     var day = 0
     var month: Int = 0
     var year: Int = 0
@@ -72,7 +74,7 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
 
             checkBox1.setOnCheckedChangeListener { _, _ ->
                 reminder_before_10 = !reminder_before_10
-               }
+            }
             checkBox2.setOnCheckedChangeListener { compoundButton, b ->
                 alarm_start = !alarm_start
             }
@@ -93,21 +95,30 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
             }
         }
         binding.btnCreateTaskStartDateId.setOnClickListener {
-            val calendar = Calendar.getInstance()
-            year = calendar.get(Calendar.YEAR)
-            month = calendar.get(Calendar.MONTH)
-            day = calendar.get(Calendar.DAY_OF_MONTH)
-            hour = calendar.get(Calendar.HOUR)
-            minute = calendar.get(Calendar.MINUTE)
-            timePickerDialog =
-                TimePickerDialog(
-                    this@CreateTaskActivity, this@CreateTaskActivity, hour, minute,
-                    false
-                )
-            datePickerDialog = DatePickerDialog(this, this@CreateTaskActivity, year, month, day)
-            datePickerDialog.show()
+            startTime = true
+            pickDateAndTime()
+        }
+        binding.btnCreateTaskEndDateId.setOnClickListener {
+            pickDateAndTime()
+            startTime = false
         }
 
+    }
+
+    private fun pickDateAndTime() {
+        val calendar = Calendar.getInstance()
+        year = calendar.get(Calendar.YEAR)
+        month = calendar.get(Calendar.MONTH)
+        day = calendar.get(Calendar.DAY_OF_MONTH)
+        hour = calendar.get(Calendar.HOUR)
+        minute = calendar.get(Calendar.MINUTE)
+        timePickerDialog =
+            TimePickerDialog(
+                this@CreateTaskActivity, this@CreateTaskActivity, hour, minute,
+                false
+            )
+        datePickerDialog = DatePickerDialog(this, this@CreateTaskActivity, year, month, day)
+        datePickerDialog.show()
     }
 
     private fun changeButtonColor(binding: ActivityCreateTaskBinding) {
@@ -122,11 +133,20 @@ class CreateTaskActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
         myDay = dayOfMonth
         myYear = year
         myMonth = month
-        binding.tvCreateDateStartViewId.text = "$myDay/$myMonth/$myYear"
+        if (startTime) {
+            binding.tvCreateDateStartViewId.text = "$myDay/$myMonth/$myYear"
+        } else {
+            binding.tvCreateDateEntdiewId.text = "$myDay/$myMonth/$myYear"
+        }
         timePickerDialog.show()
     }
 
     override fun onTimeSet(p0: TimePicker?, hour: Int, min: Int) {
-        binding.tvCreateTimeStartViewId.text = "$hour:$min"
+        if (startTime) {
+            binding.tvCreateTimeStartViewId.text = "$hour:$min"
+        } else {
+            binding.tvCreateTimeEntdiewId.text = "$hour:$min"
+
+        }
     }
 }
