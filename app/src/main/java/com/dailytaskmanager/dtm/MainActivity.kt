@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dailytaskmanager.dtm.databinding.ActivityMainBinding
 import com.dailytaskmanager.dtm.db.TaskManagerViewModel
@@ -26,12 +25,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         changeFragment(RunningTaskFragment())
         val viewModelFactory = TaskManagerViewModel(application)
-        taskLiveData = ViewModelProvider(this, object :
-            ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-                return viewModelFactory as T
-            }
-        })[TaskManagerViewModel::class.java]
+//        taskLiveData = ViewModelProvider(this, object :
+//            ViewModelProvider.Factory {
+//            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+//                return viewModelFactory as T
+//            }
+//        })[TaskManagerViewModel::class.java]
+        taskLiveData = ViewModelProvider(this).get(TaskManagerViewModel::class.java)
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
 
             when (menuItem.itemId) {
@@ -48,13 +48,16 @@ class MainActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.fabAddTaskId.setOnClickListener {
-            startActivity(Intent(this, CreateTaskActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            })
+            taskLiveData.getAllTask().observe(this) {
+                startActivity(Intent(this, CreateTaskActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    putExtra("taskId", it.size + 1)
+                })
+            }
         }
     }
 
-    fun changeFragment(mFragment: Fragment) {
+    private fun changeFragment(mFragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fl_mainActivity_id, mFragment)
             .commit()
     }

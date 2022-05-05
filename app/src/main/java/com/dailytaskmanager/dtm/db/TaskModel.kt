@@ -5,18 +5,19 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "taskManager")
 data class TaskModel(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     var id: Int = 1,
     var title: String = "No Title",
     var desc: String = "Description",
-    var taskStartTime: Long = 0,
-    var taskFinishedTime: Long = 0,
-    var taskReminder: Boolean = false,
-    var taskAlarm: Boolean = false,
-    var taskReminderId: String = "",
-    var taskAlarmId: String = "",
+    var taskStartTimeMIlls: Long = 0,
+    var taskTotalTimeMIlls: Long = 0,
+    var taskStartReminderId: Int = id,
+    var taskStartAlarmId: Int = taskStartReminderId + 1,
+    var taskEndReminderId: Int = taskStartAlarmId + 1,
+    var taskEndAlarmId: Int = taskEndReminderId + 1,
+    var istaskReminder: Boolean = false,
+    var istaskAlarm: Boolean = false,
     var taskStartDate: String = "12/12/12",
-    var taskFinishedDate: String = "12/12/12",
-    var taskIsComplete: Boolean = false,
-
-    )
+    var istaskIsComplete: Boolean = false,
+    var taskStartTime: String = "12:12 AM",
+)

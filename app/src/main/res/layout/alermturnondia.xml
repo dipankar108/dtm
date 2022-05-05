@@ -60,7 +60,7 @@
             android:id="@+id/btn_alarm_Submit_Dial_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Done"
+            android:text="Ok"
             android:textColor="@color/finishedTask" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -68,7 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
-            android:textColor="@color/incompleteTask" />
+            android:textColor="@color/incompleteTask"
+            android:visibility="gone" />
     </LinearLayout>
 
 

@@ -80,21 +80,21 @@ class TaskAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemViewType(position: Int): Int {
         val res = taskList[position]
         val currentTime = System.currentTimeMillis()
-        return if (res.taskIsComplete) {
-            0
-        } else {
-            when {
-                res.taskFinishedTime >= currentTime -> {
-                    1
-                }
-                res.taskStartTime > currentTime -> {
-                    2
-                }
-                else -> {
-                    3
-                }
-            }
-        }
-
+//        return if (res.istaskIsComplete) {
+//            0
+//        } else {
+//            when {
+//                res.istaskFinishedTime >= currentTime -> {
+//                    1
+//                }
+//                res.taskStartTime > currentTime -> {
+//                    2
+//                }
+//                else -> {
+//                    3
+//                }
+//            }
+//        }
+        return 1
     }
 }
